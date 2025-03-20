@@ -5,6 +5,13 @@
 }
 
 .sectionContainer{
-    max-width: 1340px;
+    max-width: 1440px;
     margin: 0px auto;
+}
+.mySwiper .swiper-pagination {
+    margin-top: 20px; 
+}
+.mySwiper .swiper-pagination {
+    position: relative; 
+    bottom: -20px; 
 }

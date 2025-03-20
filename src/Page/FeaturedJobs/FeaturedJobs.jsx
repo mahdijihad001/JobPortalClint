@@ -21,7 +21,7 @@ const FeaturedJobs = () => {
         <JobCart/>
         <JobCart/>
       </div>
-      <div className='py-7 text-center'>
+      <div className='py-10 text-center'>
         <button className='px-6 py-3 bg-blue-600 rounded-md font-medium text-white hover:bg-blue-800 duration-700'>Load More Listing</button>
       </div>
     </div>

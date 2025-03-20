@@ -13,7 +13,7 @@ const JobCart = () => {
       <img src={figma} className='h-[40px] w-[40px]' alt="" />
     </div>
     <div className='col-span-9'>
-      <h1 className='font-bold text-xl text-gray-500 mb-2'>Software Engineer (Android), Libraries</h1>
+      <h1 className='font-bold text-xl text-gray-500 mb-2 hover:text-blue-400 duration-700'>Software Engineer (Android), Libraries</h1>
       <div className='flex items-center gap-2'>
         <div className='flex items-center gap-1'>
           <span className='text-[18px] text-[#696969]'><GrDocumentStore /></span>
@@ -39,7 +39,7 @@ const JobCart = () => {
       </div>
     </div>
     <div className='col-span-1'>
-      <FaRegBookmark className='font-bold text-3xl text-gray-600' />
+      <FaRegBookmark className='font-bold text-3xl text-gray-600 hover:text-blue-400 duration-700' />
     </div>
   </div>
   )
