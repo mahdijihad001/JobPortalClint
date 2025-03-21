@@ -4,6 +4,7 @@ import { FaFileInvoiceDollar, FaRegBookmark } from 'react-icons/fa'
 import { GrDocumentStore } from 'react-icons/gr'
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdOutlineWatchLater } from 'react-icons/md'
+import { Link } from 'react-router'
 
 const JobCart = () => {
   return (
@@ -13,7 +14,7 @@ const JobCart = () => {
       <img src={figma} className='h-[40px] w-[40px]' alt="" />
     </div>
     <div className='col-span-9'>
-      <h1 className='font-bold text-xl text-gray-500 mb-2 hover:text-blue-400 duration-700'>Software Engineer (Android), Libraries</h1>
+      <Link to={'/jobDetails'} className='font-bold text-xl text-gray-500 mb-2 hover:text-blue-400 duration-700'>Software Engineer (Android), Libraries</Link>
       <div className='flex items-center gap-2'>
         <div className='flex items-center gap-1'>
           <span className='text-[18px] text-[#696969]'><GrDocumentStore /></span>

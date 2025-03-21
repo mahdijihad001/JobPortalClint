@@ -4,8 +4,8 @@ import React from 'react'
 
 const ArticleItem = ({blogImage}) => {
     return (
-        <div className='shadow bg-white rounded-[10px] p-2.5'>
-            <img src={blogImage} className='w-full h-[320px] rounded-md hover:scale-105 duration-700' alt="" />
+        <div className='shadow bg-white rounded-[10px] px-2.5 pt-2.5 pb-7 '>
+            <img src={blogImage} className='w-full h-[320px] rounded-md hover:scale-102 duration-700' alt="" />
             <div className='p-4'>
                 <h2 className='text-slate-400 font-medium text-[15px] pb-3'>August 31, 2021</h2>
                 <h1 className='font-bold text-xl text-[#2f3238] mb-1.5 hover:text-blue-400 duration-500'>Attract Sales And Profits</h1>

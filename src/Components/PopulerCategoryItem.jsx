@@ -1,11 +1,10 @@
 import React from 'react'
-import { AiOutlineDollar } from 'react-icons/ai'
 
 const PopulerCategoryItem = ({item}) => {
     return (
         <div className='flex items-center gap-2.5 shadow p-5'>
-            <div className='bg-[#f3f4f7] p-6 rounded-md hover:bg-[#1967d2]'>
-                <img src={item.icon} className='h-[40px] w-[40px] hover:filter hover:brightness-150 hover:invert text-blue-600' alt="" />
+            <div className='bg-[#f3f4f7] p-6 rounded-md hover:bg-[#dfe1e9] duration-700'>
+                <img src={item.icon} className='h-[40px] w-[40px]' alt="" />
             </div>
             <div>
                 <h1 className='font-bold text-gray-600 text-xl mb-2'>{item.department}</h1>

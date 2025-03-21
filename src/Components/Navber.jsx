@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import navLogo from "../assets/logo.svg"
-import {  NavLink } from 'react-router'
+import { Link, NavLink, useNavigate } from 'react-router'
+import { RxCross1 } from 'react-icons/rx';
 
 const Navber = () => {
 
-  const [scrolling , setScrolling] = useState(false);
-  const navItem = [
-    {name : "Home" , path : "/"},
-    {name : "All Jobs" , path : "/allJob"},
-    {name : "Blog" , path : "/blog"},
-  ]
 
-  useEffect( () =>{
-  
-    const handleSchollY = () =>{
-      if(window.scrollY > 50){
+
+  const [scrolling, setScrolling] = useState(false);
+  const navItem = [
+    { name: "Home", path: "/" },
+    { name: "All Jobs", path: "/allJob" },
+    { name: "Blog", path: "/blog" },
+  ];
+
+  useEffect(() => {
+
+    const handleSchollY = () => {
+      if (window.scrollY > 50) {
         setScrolling(true);
-      }else{
+      } else {
         setScrolling(false);
       }
     }
 
-    window.addEventListener("scroll" , handleSchollY);
+    window.addEventListener("scroll", handleSchollY);
 
-    return () => window.removeEventListener("scroll" , handleSchollY)
-    
-  } ,[])
+    return () => window.removeEventListener("scroll", handleSchollY)
+
+  }, []);
+
+  const navigate = useNavigate();
+
 
 
   return (
@@ -37,7 +43,7 @@ const Navber = () => {
         </div>
         {/* Authentication */}
         <div className='flex gap-2.5'>
-          <button className='bg-blue-200 px-[20px] py-2 rounded-md hover:bg-[#1967d2] text-[#1967d2] hover:text-white duration-500'>Login  / Register</button>
+          <button onClick={() => navigate("/login")} className='bg-blue-200 px-[20px] py-2 rounded-md hover:bg-[#1967d2] text-[#1967d2] hover:text-white duration-500'>Log In</button>
         </div>
       </div>
     </div>
