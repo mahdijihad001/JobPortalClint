@@ -4,10 +4,17 @@ import { FaFileInvoiceDollar, FaRegBookmark } from 'react-icons/fa'
 import { GrDocumentStore } from 'react-icons/gr'
 import { FaLocationDot } from 'react-icons/fa6'
 import { MdOutlineWatchLater } from 'react-icons/md'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import JobDescription from './JobDescription'
 
 const JobDetails = () => {
+
+    const navigate = useNavigate();
+
+    const goBack = () =>{
+        navigate(-1);
+    }
+
     return (
         <div className='min-h-screen'>
             {/* Job Cart */}
@@ -49,17 +56,22 @@ const JobDetails = () => {
                             </div>
                         </div>
                         {/* Apply Button */}
-                        <div className='md:col-span-2 grid grid-cols-1 sm:grid-cols-5 items-center gap-4'>
-                            <button className='py-3 sm:py-[18px] px-4 sm:px-[60px] bg-[#1967d2] text-sm sm:text-[17px] leading-5 font-medium text-center text-white rounded-md hover:bg-[#415572] duration-500 sm:col-span-4'>Apply For Job</button>
-                            <div className='bg-blue-200 py-3 sm:py-[18px] rounded-md flex items-center justify-center hover:bg-blue-400 duration-700 text-[#1967d2] hover:text-white shadow'>
-                                <FaRegBookmark className='font-bold text-[20px]' />
+                        <div className='md:col-span-2 '>
+                            <div className='grid grid-cols-1 sm:grid-cols-5 items-center gap-4'>
+                                <button className='py-3 sm:py-[18px] px-4 sm:px-[60px] bg-[#1967d2] text-sm sm:text-[17px] leading-5 font-medium text-center text-white rounded-md hover:bg-[#415572] duration-500 sm:col-span-4'>Apply For Job</button>
+                                <div className='bg-blue-200 py-3 sm:py-[18px] rounded-md flex items-center justify-center hover:bg-blue-400 duration-700 text-[#1967d2] hover:text-white shadow'>
+                                    <FaRegBookmark className='font-bold text-[20px]' />
+                                </div>
+                            </div>
+                            <div className='text-center py-5'>
+                                <button onClick={() => goBack()} className='px-10 py-3 bg-blue-500 rounded-md text-white font-medium hover:bg-blue-600 duration-700'>Go Back</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {/* Job Description */}
-            <JobDescription/>
+            <JobDescription />
         </div>
     )
 }

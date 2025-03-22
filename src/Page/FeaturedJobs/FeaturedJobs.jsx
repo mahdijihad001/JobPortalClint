@@ -1,12 +1,11 @@
 import React from 'react'
-import figma from "../../assets/figma.png"
-import { FaFileInvoiceDollar, FaRegBookmark } from 'react-icons/fa'
-import { GrDocumentStore } from 'react-icons/gr'
-import { FaLocationDot } from 'react-icons/fa6'
-import { MdOutlineWatchLater } from 'react-icons/md'
 import JobCart from '../../Components/JobCart'
+import { useNavigate } from 'react-router'
 
 const FeaturedJobs = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className='min-h-[90vh] container sectionContainer'>
       <div className='py-10 text-center'>
@@ -22,7 +21,7 @@ const FeaturedJobs = () => {
         <JobCart/>
       </div>
       <div className='py-10 text-center'>
-        <button className='px-6 py-3 bg-blue-600 rounded-md font-medium text-white hover:bg-blue-800 duration-700'>Load More Listing</button>
+        <button onClick={() => navigate("/alljobs")} className='px-6 py-3 bg-blue-600 rounded-md font-medium text-white hover:bg-blue-800 duration-700'>Load More Listing</button>
       </div>
     </div>
   )
