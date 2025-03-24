@@ -9,11 +9,14 @@ import LogIn from './Page/Auth/LogIn.jsx'
 import SingUp from './Page/Auth/SingUp.jsx'
 import ArticlesDescription from './Page/Articles/ArticlesDescription.jsx'
 import AllJobs from './Page/FeaturedJobs/AllJobs.jsx'
+import Layout from './Page/Dashboard/Layout/Layout.jsx'
+import DashboardHome from './Page/Dashboard/DashboardHome/DashboardHome.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        {/* Website Ui */}
         <Route element={<App />}>
           <Route index element={<Home/>}/>
           <Route path='/login' element={<LogIn/>}/>
@@ -21,6 +24,10 @@ createRoot(document.getElementById('root')).render(
           <Route path='/jobDetails' element={<JobDetails/>}/>
           <Route path='/ariicleDes' element={<ArticlesDescription/>} />
           <Route path='/alljobs' element={<AllJobs/>} />
+        </Route>
+        {/* Dashboard Ui */}
+        <Route path='/dashboard' element={<Layout/>}>
+          <Route index element={<DashboardHome/>} />
         </Route>
       </Routes>
     </BrowserRouter>

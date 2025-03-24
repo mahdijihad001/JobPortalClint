@@ -32,7 +32,7 @@ const Banner = () => {
         <div className='max-sm:hidden sm:hidden md:hidden lg:block w-full'>
           <img className='bg-center bg-no-repeat h-[710px] absolute bottom-0 right-[100px] w-auto' src={BannerImage} alt="" />
           {/* ToolTip 1 */}
-          <div className='p-6 bg-white inline-block rounded-md shadow z-40 absolute top-[140px]'>
+          <div className='p-6 bg-white inline-block rounded-md shadow z-30 absolute top-[140px]'>
             <div className='flex gap-2.5 items-center'>
               <div className='bg-[#f9ab00] p-3 opacity-80 rounded-md'>
                 <TfiEmail className='text-3xl text-yellow-100' />
@@ -41,7 +41,7 @@ const Banner = () => {
             </div>
           </div>
           {/*Tooltip 2*/}
-          <div className='p-6 bg-white inline-block rounded-md shadow z-40 absolute bottom-[160px] right-[450px]'>
+          <div className='p-6 bg-white inline-block rounded-md shadow z-30 absolute bottom-[160px] right-[450px]'>
             <div className='flex gap-2.5 items-center'>
               <div className='p-3 opacity-80 rounded-md'>
                 <FaFileUpload className='text-3xl text-blue-500' />
@@ -53,7 +53,7 @@ const Banner = () => {
             </div>
           </div>
           {/*Tooltip 3*/}
-          <div className='p-6 bg-white inline-block rounded-md shadow z-40 absolute bottom-[360px] right-[120px]'>
+          <div className='p-6 bg-white inline-block rounded-md shadow z-30 absolute bottom-[360px] right-[120px]'>
             <div className='flex gap-2.5 items-center'>
               <div className='bg-[#d93025]/20 p-3 rounded-full'>
                 <TfiEmail className='text-4xl text-[#d93025] opacity-60' />
