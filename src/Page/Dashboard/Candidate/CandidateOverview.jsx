@@ -82,7 +82,7 @@ const CandidateOverview = () => {
         </div>
       </div>
       {/* Bar Chart */}
-      <div className='py-[30px] md:py-[60px]'>
+      <div className=''>
         <Bar options={options} data={data} />
       </div>
       {/* End Bar Chart */}

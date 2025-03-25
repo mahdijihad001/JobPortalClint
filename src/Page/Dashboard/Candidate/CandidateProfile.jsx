@@ -125,7 +125,7 @@ const CandidateProfile = () => {
           {/* Description*/}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
-              <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Complete Address</label>
+              <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Description</label>
               {/* <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Complete Address' /> */}
               <textarea className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' placeholder='Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam corporis expedita earum maiores nobis sed necessitatibus labore minima ex aliquam ipsam dolorum rerum veniam, ad asperiores amet excepturi dignissimos!' name="" id=""></textarea>
             </div>

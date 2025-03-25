@@ -14,7 +14,7 @@ const Layout = () => {
         { name: "Dashboard", icon: FaHome, path: "/dashboard" },
         { name: "My Profile", icon: FaUser, path: "/dashboard/candifateProfile" },
         { name: "My Resume", icon: PiReadCvLogoFill, path: "" },
-        { name: "Applied Jobs", icon: IoBagCheckOutline, path: "" },
+        { name: "Applied Jobs", icon: IoBagCheckOutline, path: "/dashboard/appliedJobs" },
         { name: "Shortlisted Jobs", icon: CiBookmark, path: "" },
     ];
 
@@ -43,7 +43,7 @@ const Layout = () => {
 
     return (
         <div className='h-screen'>
-            <div className='container sectionContainer grid grid-cols-15 gap-3 h-full'>
+            <div className='grid grid-cols-15 gap-3 h-full'>
                 {/* Dashboard Menu */}
                 <div className='col-span-3 shadow p-6'>
                     <div>

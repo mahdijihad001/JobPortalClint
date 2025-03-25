@@ -12,6 +12,7 @@ import AllJobs from './Page/FeaturedJobs/AllJobs.jsx'
 import Layout from './Page/Dashboard/Layout/Layout.jsx'
 import DashboardHome from './Page/Dashboard/DashboardHome/DashboardHome.jsx'
 import CandidateProfile from './Page/Dashboard/Candidate/CandidateProfile.jsx'
+import AppliedJobs from './Page/Dashboard/Candidate/AppliedJobs.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -30,6 +31,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/dashboard' element={<Layout/>}>
           <Route index element={<DashboardHome/>} />
           <Route path='candifateProfile' element={<CandidateProfile/>} />
+          <Route path='appliedJobs' element={<AppliedJobs/>} />
         </Route>
       </Routes>
     </BrowserRouter>
