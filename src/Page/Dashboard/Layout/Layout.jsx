@@ -11,8 +11,8 @@ import { PiReadCvLogoFill } from 'react-icons/pi'
 const Layout = () => {
 
     const candidate = [
-        { name: "Dashboard", icon: FaHome, path: "" },
-        { name: "My Profile", icon: FaUser, path: "" },
+        { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+        { name: "My Profile", icon: FaUser, path: "/dashboard/candifateProfile" },
         { name: "My Resume", icon: PiReadCvLogoFill, path: "" },
         { name: "Applied Jobs", icon: IoBagCheckOutline, path: "" },
         { name: "Shortlisted Jobs", icon: CiBookmark, path: "" },
@@ -55,7 +55,7 @@ const Layout = () => {
                             <ul className='flex flex-col gap-7'>
                                 {
                                     isAdmin.map((item, idx) => (
-                                        <Link key={idx} className='flex items-center gap-2.5 text-[18px] font-medium text-slate-600 leading-8 outfit'><item.icon /><span>{item.name}</span></Link>
+                                        <Link key={idx} to={item.path} className='flex items-center gap-2.5 text-[18px] font-medium text-slate-600 leading-8 outfit'><item.icon /><span>{item.name}</span></Link>
                                     ))
                                 }
 
