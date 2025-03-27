@@ -1,10 +1,5 @@
 import React from 'react'
-import { AiOutlineDollar } from 'react-icons/ai'
 import PopulerCategoryItem from '../../Components/PopulerCategoryItem'
-import { Link } from 'lucide-react';
-import { FaSackDollar } from 'react-icons/fa6';
-import { GiSpinningBlades } from 'react-icons/gi';
-import { FaCode } from 'react-icons/fa';
 import Finance from "../../assets/mony-1.png"
 import Marketing from "../../assets/marketing.png"
 import Design from "../../assets/design.png"

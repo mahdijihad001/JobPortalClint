@@ -1,9 +1,8 @@
 import React from 'react';
 import figma from "../../../assets/figma.png";
-import { FaEye, FaFileInvoiceDollar } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 import { GrDocumentStore } from 'react-icons/gr';
 import { FaLocationDot } from 'react-icons/fa6';
-import { MdOutlineWatchLater } from 'react-icons/md';
 import { Link } from 'react-router';
 import { RiDeleteBinLine } from 'react-icons/ri';
 

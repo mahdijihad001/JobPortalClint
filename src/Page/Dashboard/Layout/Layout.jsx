@@ -15,14 +15,13 @@ const Layout = () => {
         { name: "My Profile", icon: FaUser, path: "/dashboard/candifateProfile" },
         { name: "My Resume", icon: PiReadCvLogoFill, path: "" },
         { name: "Applied Jobs", icon: IoBagCheckOutline, path: "/dashboard/appliedJobs" },
-        { name: "Shortlisted Jobs", icon: CiBookmark, path: "" },
+        { name: "Shortlisted Jobs", icon: CiBookmark, path: "/dashboard/candidateBookmark" },
     ];
 
     const employe = [
-        { name: "Dashboard", icon: FaHome, path: "" },
-        { name: "Company Profile", icon: FaUser, path: "" },
-        { name: "Post A New Job", icon: MdOutlineKeyboardDoubleArrowRight, path: "" },
-        { name: "Manage Jobs", icon: IoBagCheckOutline, path: "" },
+        { name: "Dashboard", icon: FaHome, path: "/dashboard" },
+        { name: "Post A New Job", icon: MdOutlineKeyboardDoubleArrowRight, path: "/dashboard/postJob" },
+        { name: "Manage Jobs", icon: IoBagCheckOutline, path: "/dashboard/manageJob" },
         { name: "All Applicants", icon: RiFileList2Fill, path: "" },
     ];
 
@@ -55,7 +54,7 @@ const Layout = () => {
                             <ul className='flex flex-col gap-7'>
                                 {
                                     isAdmin.map((item, idx) => (
-                                        <Link key={idx} to={item.path} className='flex items-center gap-2.5 text-[18px] font-medium text-slate-600 leading-8 outfit'><item.icon /><span>{item.name}</span></Link>
+                                        <Link key={idx} to={item.path} className='flex items-center gap-2.5 text-[22px] font-medium text-slate-600 leading-8 outfit'><item.icon /><span>{item.name}</span></Link>
                                     ))
                                 }
 
