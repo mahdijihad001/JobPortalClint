@@ -1,8 +1,51 @@
 import React from 'react'
 import LogInImage from "../../assets/banner-img-1.png"
 import { Link } from 'react-router'
+import { useForm } from 'react-hook-form'
+import BaseUrl from '../../Utils/BaseUrl'
+import Swal from 'sweetalert2'
 
 const LogIn = () => {
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+
+
+      const HandleLogIn = async(data) =>{
+        try {
+            const result = await fetch(`${BaseUrl()}/user/login` , {
+                method : "POST" ,
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(data),
+                credentials : "include"
+            });
+
+            if(!result.ok){
+                Swal.fire({
+                    title: "error!",
+                    text: "Log In Faild Please try again!",
+                    icon: "error"
+                  });
+            }
+            
+            const user = await result.json();
+            Swal.fire({
+                title: "Success!",
+                text: "You are successfully login!",
+                icon: "success"
+              });
+              localStorage.setItem("user" , JSON.stringify(user?.user))
+
+        } catch (error) {
+            return alert("Login Faild! Please try again.")
+        }
+      }
+
     return (
         <div className='container sectionContainer grid grid-cols-1 md:grid-cols-2 gap-4 min-h-[92vh]'>
             <div className='relative hidden md:block'>
@@ -14,14 +57,14 @@ const LogIn = () => {
                     <h1 className='font-bold text-4xl text-gray-600'>Login to Superio</h1>
                 </div>
                 <div>
-                    <form className="p-4 space-y-3">
+                    <form onSubmit={handleSubmit(HandleLogIn)} className="p-4 space-y-3">
                         <div>
                             <label className='block text-[15px] font-bold leading-5 text-gray-500' htmlFor="">Username</label>
-                            <input className='w-full p-3.5 mt-2.5 bg-[#f0f5f7] rounded-md border-blue-300 focus:to-blue-300 outline-blue-300' type="text" placeholder='Username' />
+                            <input {...register("username")} className='w-full p-3.5 mt-2.5 bg-[#f0f5f7] rounded-md border-blue-300 focus:to-blue-300 outline-blue-300' type="text" placeholder='Username' />
                         </div>
                         <div>
                             <label className='block text-[15px] font-bold leading-5 text-gray-500' htmlFor="">Password</label>
-                            <input className='w-full p-3.5 mt-2.5 bg-[#f0f5f7] rounded-md border-blue-300 focus:to-blue-300 outline-blue-300' type="password" placeholder='Password' />
+                            <input {...register("password")} className='w-full p-3.5 mt-2.5 bg-[#f0f5f7] rounded-md border-blue-300 focus:to-blue-300 outline-blue-300' type="password" placeholder='Password' />
                         </div>
                         <div className='flex items-center justify-end mt-2.5 py-3'>
                             <Link className='text-blue-500'>Forgot password?</Link>
