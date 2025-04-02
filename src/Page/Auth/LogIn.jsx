@@ -1,6 +1,6 @@
 import React from 'react'
 import LogInImage from "../../assets/banner-img-1.png"
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import BaseUrl from '../../Utils/BaseUrl'
 import Swal from 'sweetalert2'
@@ -11,40 +11,47 @@ const LogIn = () => {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm();
+    } = useForm();
 
+    const navigate = useNavigate();
 
-      const HandleLogIn = async(data) =>{
+    const HandleLogIn = async (data) => {
         try {
-            const result = await fetch(`${BaseUrl()}/user/login` , {
-                method : "POST" ,
-                headers : {
-                    "Content-Type" : "application/json"
+            const result = await fetch(`${BaseUrl()}/user/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
                 },
-                body : JSON.stringify(data),
-                credentials : "include"
+                body: JSON.stringify(data),
+                credentials: "include"
             });
-
-            if(!result.ok){
+            
+            const user = await result.json();
+            console.log(user);
+            if (!user.success) {
                 Swal.fire({
                     title: "error!",
                     text: "Log In Faild Please try again!",
                     icon: "error"
-                  });
+                });
+            } else if (user.success){
+                Swal.fire({
+                    title: "Success!",
+                    text: "You are successfully login!",
+                    icon: "success"
+                });
+                localStorage.setItem("user", JSON.stringify(user?.user));
+                navigate("/")
             }
-            
-            const user = await result.json();
-            Swal.fire({
-                title: "Success!",
-                text: "You are successfully login!",
-                icon: "success"
-              });
-              localStorage.setItem("user" , JSON.stringify(user?.user))
 
         } catch (error) {
-            return alert("Login Faild! Please try again.")
+            return Swal.fire({
+                title: "error!",
+                text: "Log In Faild Please try again!",
+                icon: "error"
+            });
         }
-      }
+    }
 
     return (
         <div className='container sectionContainer grid grid-cols-1 md:grid-cols-2 gap-4 min-h-[92vh]'>
