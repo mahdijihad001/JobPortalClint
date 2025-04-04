@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
 import demoProfile from "../../../assets/demoProfile.png"
+import { useForm } from 'react-hook-form';
 
 const CandidateProfile = () => {
 
   const [image, setImage] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const HandleUpdateProfile = (data) =>{
+    console.log(data);
+  }
 
   const HandleImageShow = (e) => {
     const file = e.target.files[0];
@@ -20,7 +30,7 @@ const CandidateProfile = () => {
       </div>
 
       {/* My Profile */}
-      <form className='px-2.5 py-10'>
+      <form onSubmit={handleSubmit(HandleUpdateProfile)} className='px-2.5 py-10'>
         <div className='flex flex-col gap-5 md:flex-row py-10 items-center'>
           <img className='h-[100px] w-[100px] rounded-full' src={image ? image : demoProfile} alt="" />
           <input className='border p-10 rounded-md border-gray-300' onChange={HandleImageShow} name='file' type="file" />
@@ -31,95 +41,95 @@ const CandidateProfile = () => {
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Full Name</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Full Name' />
+              <input {...register("fullName")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Full Name' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Job Title</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Job Title' />
+              <input {...register("jobTitle")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Job Title' />
             </div>
           </div>
           {/* Phone & Email*/}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Phone</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="number" placeholder='Phone Number' />
+              <input {...register("phone")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="number" placeholder='Phone Number' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Email</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="email" placeholder='Email' />
+              <input {...register("email")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="email" placeholder='Email' />
             </div>
           </div>
           {/* Website & sallary*/}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Website</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='www.profile.com' />
+              <input {...register("website")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='www.profile.com' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Expected Salary</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Expected Salary' />
+              <input {...register("expectedSalary")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Expected Salary' />
             </div>
           </div>
           {/* Exprience & age*/}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Exprience</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Exprience' />
+              <input {...register("exprience")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Exprience' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Age</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Age' />
+              <input {...register("age")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Age' />
             </div>
           </div>
           {/* Education Level & Languages */}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Education Level</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Education Level' />
+              <input {...register("educationLevel")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Education Level' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Language</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Languages' />
+              <input {...register("language")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Languages' />
             </div>
           </div>
           {/* facebook link & twiter */}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Facebook Profile</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.facebook.com' />
+              <input {...register("facebook")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.facebook.com' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Twiter Profile</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.twiter.com/' />
+              <input {...register("twiter")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.twiter.com/' />
             </div>
           </div>
           {/* Linkedin & github */}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Linkedin Profile</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.Linkedin.com' />
+              <input {...register("linkedin")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.Linkedin.com' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Github Profile</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.github.com/' />
+              <input {...register("github")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='https://www.github.com/' />
             </div>
           </div>
           {/* Country & City */}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Country</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Country' />
+              <input {...register("country")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Country' />
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">City</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='City' />
+              <input {...register("city")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='City' />
             </div>
           </div>
           {/* Complete Address */}
           <div className='flex flex-col gap-4 md:flex-row items-center'>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Complete Address</label>
-              <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Complete Address' />
+              <input {...register("completeAddress")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Complete Address' />
             </div>
           </div>
           {/* Description*/}
@@ -127,7 +137,7 @@ const CandidateProfile = () => {
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Description</label>
               {/* <input className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="text" placeholder='Complete Address' /> */}
-              <textarea className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' placeholder='Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam corporis expedita earum maiores nobis sed necessitatibus labore minima ex aliquam ipsam dolorum rerum veniam, ad asperiores amet excepturi dignissimos!' name="" id=""></textarea>
+              <textarea {...register("description")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' placeholder='Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam corporis expedita earum maiores nobis sed necessitatibus labore minima ex aliquam ipsam dolorum rerum veniam, ad asperiores amet excepturi dignissimos!' name="" id=""></textarea>
             </div>
           </div>
         </div>
