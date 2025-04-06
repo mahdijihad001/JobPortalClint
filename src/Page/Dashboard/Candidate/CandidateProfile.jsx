@@ -1,25 +1,71 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import demoProfile from "../../../assets/demoProfile.png"
 import { useForm } from 'react-hook-form';
+import BaseUrl from './../../../Utils/BaseUrl';
+import { CreateAuthContext } from '../../../Context/CreateAuthContext';
+import Swal from 'sweetalert2';
 
 const CandidateProfile = () => {
+
+  const { user } = useContext(CreateAuthContext);
+
+
 
   const [image, setImage] = useState("");
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
 
-  const HandleUpdateProfile = (data) =>{
-    console.log(data);
+
+
+  const HandleUpdateProfile = async (data) => {
+    const result = await fetch(`${BaseUrl()}/user/profileUpdate/${user?._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const updateResult = await result.json();
+    if (updateResult.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Profile Updated!",
+        icon: "success"
+      });
+    } else {
+      Swal.fire({
+        title: "error!",
+        text: "Profile not updated!",
+        icon: "error"
+      });
+    }
+
   }
 
-  const HandleImageShow = (e) => {
+  const HandleImageShow = async (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(URL.createObjectURL(file));
     }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "forst_time_upload_image");
+    formData.append("cloud_name", "de8jq6747");
+
+    const uploadImage = await fetch(`https://api.cloudinary.com/v1_1/de8jq6747/image/upload`, {
+      method: "POST",
+      body: formData
+    });
+
+    const image = await uploadImage.json();
+    setValue("image", image.url);
+
   }
 
   return (
@@ -53,6 +99,7 @@ const CandidateProfile = () => {
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Phone</label>
               <input {...register("phone")} className='bg-[#f0f5f7] border-[#f0f5f7] p-4 mt-1 rounded-md outline-blue-200' type="number" placeholder='Phone Number' />
+
             </div>
             <div className='flex flex-col gap-1.5 w-full'>
               <label className='font-medium text-gray-500 text-[18px]' htmlFor="">Email</label>

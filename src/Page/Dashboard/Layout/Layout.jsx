@@ -34,8 +34,8 @@ const Layout = () => {
         { name: "Manage All Atricles", icon: FaArtstation, path: "/" },
     ];
 
-    const userRole = "candidate";
-    // const userRole = "employe";
+    // const userRole = "candidate";
+    const userRole = "employe";
     // const userRole = "admin";
 
     const isAdmin = userRole === "admin" ? [...admin] : userRole === "employe" ? [...employe] : [...candidate];
